@@ -2,7 +2,7 @@
 
 💻 This repo was created to document the different types of sorts in Python methods.
 
-## Here you will find the following sort python methods:
+## Here you will find the following python sort algorythm methods:
 
 ➡️ Selection Sort
 
