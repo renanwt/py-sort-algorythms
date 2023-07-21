@@ -1,5 +1,5 @@
 import random
-from sort_algorythms import quicksort
+from sort_algorythms import quicksort, mergesort
 
 any_list = random.sample(range(1, 1000), 42)
 sorted_list = [i for i in range(1, 43)]
@@ -18,7 +18,7 @@ if __name__ == "__main__":
     for case, list in test_cases.items():
         print("\nTest Case: {}".format(case))
         print(list)
-        quicksort(list)
+        mergesort(list)
         print("\nSorted:")
         print(list)
         print('\n------------------------------------------------------')

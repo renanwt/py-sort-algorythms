@@ -1,6 +1,6 @@
 # Quick Sort
 # A Pivot Element is chosen inside a list
-# A QuickSort is useful when time complexity matters. This is because QuickSort use less memory space than other
+# A QuickSort is useful when TIME complexity MATTERS. This is because QuickSort use LESS MEMORY space than other
 # algorithms, which gives them an efficiency boost. You should only use a QuickSort if you are familiar with Python
 # recursion. This is because the QuickSort algorithm depends on recursive functions.
 
@@ -25,3 +25,34 @@ def partition(list, start, end):
     return s
 
 
+# The biggest advantage of Merge sort is that it can sort LARGE DATA SETS easily because it has FASTER TIME complexity.
+# It is also a stable sorting algorithm which means it maintains the relative order of equal elements. Also, merge sort
+# works when sorting linked lists because of its divide-and-conquer approach.
+
+def mergesort(list, start=0, end=None):
+    if end is None:
+        end = len(list)
+    if end - start > 1:
+        middle = (end + start)//2
+        mergesort(list, start, middle)
+        mergesort(list, middle, end)
+        merge(list, start, middle, end)
+
+
+def merge(list, start, middle, end):
+    left = list[start:middle]
+    right = list[middle:end]
+    first_l, first_r = 0, 0
+    for k in range(start, end):
+        if first_l >= len(left):
+            list[k] = right[first_r]
+            first_r = first_r + 1
+        elif first_r >= len(right):
+            list[k] = left[first_l]
+            first_l = first_l + 1
+        elif left[first_l] < right[first_r]:
+            list[k] = left[first_l]
+            first_l += 1
+        else:
+            list[k] = right[first_r]
+            first_r += 1
