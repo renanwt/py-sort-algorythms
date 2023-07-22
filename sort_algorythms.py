@@ -1,4 +1,4 @@
-# Quick Sort
+# QUICK SORT
 # A Pivot Element is chosen inside a list
 # A QuickSort is useful when TIME complexity MATTERS. This is because QuickSort use LESS MEMORY space than other
 # algorithms, which gives them an efficiency boost. You should only use a QuickSort if you are familiar with Python
@@ -25,6 +25,7 @@ def partition(list, start, end):
     return s
 
 
+# MERGE SORT
 # The biggest advantage of Merge sort is that it can sort LARGE DATA SETS easily because it has FASTER TIME complexity.
 # It is also a stable sorting algorithm which means it maintains the relative order of equal elements. Also, merge sort
 # works when sorting linked lists because of its divide-and-conquer approach.
@@ -56,3 +57,48 @@ def merge(list, start, middle, end):
         else:
             list[k] = right[first_r]
             first_r += 1
+
+
+# SELECTION SORT
+# Does the sorting operation in-place i.e. no extra space is required, so it is a great algorithm
+# to use when the SPACE PROVIDED is LIMITED. Selection is good to use when more than half of the element is sorted,
+# then the time complexity is O(n).
+def selectionsort(list):
+    n = len(list)
+    for j in range(n-1):
+        min_idx = j
+        for i in range(j, n):
+            if list[i] < list[min_idx]:
+                min_idx = i
+        if list[j] > list[min_idx]:
+            aux = list[j]
+            list[j] = list[min_idx]
+            list[min_idx] = aux
+
+
+# BUBBLE SORT
+# It's a good sorting method to use when you're just starting to learn about sorting algorithms. A bubble
+# sort is a SIMPLE way to sort a list of items that do not appear in order. Bubble sorts work best when you have a list
+# with only a FEW OBJECTS.
+def bubblesort(list):
+    n = len(list)
+    for j in range(n-1):
+        for i in range(n-1):
+            if list[i] > list[i+1]:
+                aux = list[i]
+                list[i] = list[i+1]
+                list[i+1] = aux
+
+
+# INSERTION SORT
+# The Insertion sort in Python is specially used when the number of elements in an array is less. It is also useful
+# when the input array is almost sorted, and only a FEW ELEMENTS are misplaced in the whole array.
+def insertionsort(list):
+    n = len(list)
+    for i in range(1, n):
+        key = list[i]
+        j = i - 1
+        while j >= 0 and list[j] > key:
+            list[j+1] = list[j]
+            j -= 1
+        list[j+1] = key
